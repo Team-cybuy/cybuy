@@ -35,3 +35,20 @@ out/
 
 ### VS Code ###
 .vscode/
+
+*/main/frontend/dist
+*/main/frontend/out
+*/main/frontend/out-tsc
+*/main/frontend/node_modules
+*/main/frontend/chrome-profiler-events*.json
+*/main/frontend/.angular/cache
+*/main/frontend/.sass-cache
+*/main/frontend/connect.lock
+*/main/frontend/coverage
+*/main/frontend/libpeerconnection.log
+*/main/frontend/npm-debug.log
+*/main/frontend/yarn-error.log
+*/main/frontend/testem.log
+*/main/frontend/typings
+.DS_Store
+Thumbs.db
