@@ -3,6 +3,11 @@
   width: auto;
 }
 
+header {
+  position: sticky;
+  top: 0;
+}
+
 mat-toolbar {
   height: 128px;
   padding: 16px;
@@ -69,4 +74,9 @@ mat-toolbar>div>* {
 
 ::ng-deep .search-bar .mat-form-field-underline {
   bottom: 0px;
+}
+
+.placeholder {
+  width: 100%;
+  display: block;
 }
