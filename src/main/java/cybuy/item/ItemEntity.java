@@ -1,4 +1,4 @@
-package cybuy.data;
+package cybuy.item;
 
 import javax.persistence.*;
 
@@ -8,12 +8,12 @@ public class ItemEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long item_Number;
 
     @Column(name = "title")
     private String title;
 
-    @Column(name = "description")
+    @Lob
     private String description;
 
     @Column(name = "price")
@@ -31,8 +31,8 @@ public class ItemEntity {
         this.price = price;
     }
 
-    public long getId() {
-        return id;
+    public long getItemNumber() {
+        return item_Number;
     }
 
     public String getTitle() {
@@ -61,7 +61,7 @@ public class ItemEntity {
 
     @Override
     public String toString() {
-        return "Item [id=" + this.id + ", title=" + this.title + ", description=" + this.description + ", price="
+        return "Item [item_Number=" + this.item_Number + ", title=" + this.title + ", description=" + this.description + ", price="
                 + this.price + "]";
     }
 }

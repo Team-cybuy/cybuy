@@ -1,4 +1,4 @@
-package cybuy.data;
+package cybuy.item;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

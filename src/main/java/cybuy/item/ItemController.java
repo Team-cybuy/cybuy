@@ -1,7 +1,5 @@
-package cybuy.controllers;
+package cybuy.item;
 
-import cybuy.data.ItemEntity;
-import cybuy.data.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,10 +23,10 @@ public class ItemController {
         return items.isEmpty() ? new ResponseEntity<>(null, HttpStatus.NO_CONTENT) : new ResponseEntity<>(items, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ItemEntity> getItemById(@PathVariable("id") long id) {
+    @GetMapping("/{itemNum}")
+    public ResponseEntity<ItemEntity> getItemById(@PathVariable("itemNum") long itemNum) {
 
-        Optional<ItemEntity> itemEntityData = itemRepository.findById(id);
+        Optional<ItemEntity> itemEntityData = itemRepository.findById(itemNum);
         return itemEntityData.map(itemEntity -> new ResponseEntity<>(itemEntity, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
     }
 
@@ -45,10 +43,10 @@ public class ItemController {
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<ItemEntity> updateItem(@PathVariable("id") long id, @RequestBody ItemEntity itemEntity) {
+    @PutMapping("/{itemNum}")
+    public ResponseEntity<ItemEntity> updateItem(@PathVariable("itemNum") long itemNum, @RequestBody ItemEntity itemEntity) {
 
-        Optional<ItemEntity> itemEntityData = itemRepository.findById(id);
+        Optional<ItemEntity> itemEntityData = itemRepository.findById(itemNum);
         if(itemEntityData.isPresent()) {
 
             ItemEntity _itemEntity = itemEntityData.get();
@@ -62,12 +60,12 @@ public class ItemController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<HttpStatus> deleteItem(@PathVariable("id") long id) {
+    @DeleteMapping("/{itemNum}")
+    public ResponseEntity<HttpStatus> deleteItem(@PathVariable("itemNum") long itemNum) {
 
         try {
 
-            itemRepository.deleteById(id);
+            itemRepository.deleteById(itemNum);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
 
