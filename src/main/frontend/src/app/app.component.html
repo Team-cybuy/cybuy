@@ -1,1 +1,24 @@
-{{title}}
+<mat-toolbar>
+  <div>
+    <img class="logo" src="../assets/logo_transparent.png" alt="cybuy Logo">
+  </div>
+
+  <div>
+    <mat-form-field class="search-bar" appearance="fill" floatLabel='never' hintLabel="">
+      <input matInput placeholder="Search..." type="search" [(ngModel)]="value">
+
+      <button matSuffix mat-icon-button aria-label="Search" (click)="value=''">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="navigation">
+    <button mat-icon-button>
+      <mat-icon>forum</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>person</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
