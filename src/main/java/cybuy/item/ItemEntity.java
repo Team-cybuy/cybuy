@@ -14,6 +14,7 @@ public class ItemEntity {
     private String title;
 
     @Lob
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "price")
