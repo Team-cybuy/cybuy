@@ -15,6 +15,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { ListingComponent } from './listing/listing.component';
 import {RouterModule} from "@angular/router";
 import { HomeComponent } from './home/home.component';
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
