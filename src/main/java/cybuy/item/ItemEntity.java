@@ -1,5 +1,8 @@
 package cybuy.item;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import cybuy.user.UserEntity;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,7 +11,7 @@ public class ItemEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long item_Number;
+    private long item_number;
 
     @Column(name = "title")
     private String title;
@@ -20,8 +23,10 @@ public class ItemEntity {
     @Column(name = "price")
     private double price;
 
-//    @Column(name = "user")
-//    private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference
+    private UserEntity user_entity;
 
     public ItemEntity() {}
 
@@ -33,7 +38,7 @@ public class ItemEntity {
     }
 
     public long getItemNumber() {
-        return item_Number;
+        return item_number;
     }
 
     public String getTitle() {
@@ -60,9 +65,17 @@ public class ItemEntity {
         this.price = price;
     }
 
+    public UserEntity getUser_entity() {
+        return user_entity;
+    }
+
+    public void setUser_entity(UserEntity user) {
+        this.user_entity = user;
+    }
+
     @Override
     public String toString() {
-        return "Item [item_Number=" + this.item_Number + ", title=" + this.title + ", description=" + this.description + ", price="
-                + this.price + "]";
+        return "Item [item_number=" + this.item_number + ", title=" + this.title + ", description=" + this.description + ", price="
+                + this.price + ", user=" + this.user_entity + "]";
     }
 }

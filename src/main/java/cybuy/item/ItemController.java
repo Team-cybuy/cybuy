@@ -1,5 +1,7 @@
 package cybuy.item;
 
+import cybuy.user.UserEntity;
+import cybuy.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,13 +10,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+//starter data rest
 @RestController
 @RequestMapping("/items")
 public class ItemController {
 
     @Autowired
     ItemRepository itemRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping
     public ResponseEntity<List<ItemEntity>> getAllItems() {
@@ -27,20 +31,26 @@ public class ItemController {
     public ResponseEntity<ItemEntity> getItemById(@PathVariable("itemNum") long itemNum) {
 
         Optional<ItemEntity> itemEntityData = itemRepository.findById(itemNum);
-        return itemEntityData.map(itemEntity -> new ResponseEntity<>(itemEntity, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
+        return itemEntityData.map(itemEntity -> new ResponseEntity<>(itemEntity, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping
-    public ResponseEntity<ItemEntity> createItem(@RequestBody ItemEntity itemEntity) {
+    @PostMapping("/{userId}")
+    public ResponseEntity<ItemEntity> createItem(@PathVariable("userId") long userId , @RequestBody ItemEntity itemEntity) {
 
-        try {
+//        try {
+//
+//            ItemEntity _ItemEntity = itemRepository.save(new ItemEntity(itemEntity.getTitle(), itemEntity.getDescription(), itemEntity.getPrice()));
+//            return new ResponseEntity<>(_ItemEntity, HttpStatus.CREATED);
+//        } catch (Exception e) {
+//
+//            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+        return userRepository.findById(userId).map(user -> {
 
-            ItemEntity _ItemEntity = itemRepository.save(new ItemEntity(itemEntity.getTitle(), itemEntity.getDescription(), itemEntity.getPrice()));
-            return new ResponseEntity<>(_ItemEntity, HttpStatus.CREATED);
-        } catch (Exception e) {
-
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+            itemEntity.setUser_entity(user);
+            return new ResponseEntity<>(itemRepository.save(itemEntity), HttpStatus.CREATED);
+        }).orElseGet(() -> new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
     @PutMapping("/{itemNum}")
@@ -78,12 +88,19 @@ public class ItemController {
 
         try {
 
-            List<ItemEntity> items = itemRepository.findByTitleContaining(part);
+            List<ItemEntity> items = itemRepository.findByTitleContainingIgnoreCase(part);
 
             return items.isEmpty() ? new ResponseEntity<>(null, HttpStatus.NOT_FOUND) : new ResponseEntity<>(items, HttpStatus.OK);
         } catch (Exception e) {
 
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping("/matchingUser/{itemNum}")
+    public ResponseEntity<UserEntity> getMatchingUser(@PathVariable("itemNum") long itemNum) {
+
+        UserEntity userEntity = userRepository.findByItemsContaining(itemNum);
+        return userEntity == null ? new ResponseEntity<>(null, HttpStatus.NO_CONTENT) : new ResponseEntity<>(userEntity, HttpStatus.OK);
     }
 }
