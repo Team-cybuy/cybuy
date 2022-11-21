@@ -75,8 +75,3 @@ mat-toolbar>div>* {
 ::ng-deep .search-bar .mat-form-field-underline {
   bottom: 0px;
 }
-
-.placeholder {
-  width: 100%;
-  display: block;
-}

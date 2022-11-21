@@ -12,10 +12,15 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import { ListingComponent } from './listing/listing.component';
+import {RouterModule} from "@angular/router";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListingComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,7 @@ import {MatButtonModule} from "@angular/material/button";
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
