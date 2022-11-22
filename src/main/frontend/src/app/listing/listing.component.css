@@ -1,0 +1,124 @@
+h1 {
+  color: #ffffff;
+}
+
+img {
+  display: block;
+}
+
+mat-card {
+  background-color: #ffffff;
+}
+
+mat-card-content {
+  padding: 28px;
+  color: #3c3c3c;
+  font-size: 26px;
+  line-height: 28px;
+}
+
+#itemTitle {
+  text-align: center;
+  font-size: 52px;
+  font-weight: lighter;
+  margin: 24px 0px 48px 0px;
+}
+
+#listing {
+  display: flex;
+  margin: 0px 52px;
+}
+
+#listing>* {
+  margin: 0px 24px;
+}
+
+#productImageBig {
+  flex-basis: 400px;
+  height: 400px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0px;
+  overflow: hidden;
+}
+
+#description {
+  min-height: 368px;
+  height: auto;
+}
+
+#description>mat-card-content{
+  padding: 32px 0px 32px 32px;
+}
+
+#listingImagePreviews {
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#listingImagePreviews>mat-card {
+  flex-basis: 80px;
+  height: 80px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0px;
+  margin: 0px;
+}
+
+#itemInfo {
+  margin-top: 48px;
+  display: flex;
+}
+
+#itemInfo>div>mat-icon {
+  font-size: 56px;
+  width: 56px;
+  height: 56px;
+  color: #ffffff;
+  margin-right: 16px;
+}
+
+#itemInfo>div {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+#itemInfo>div>span {
+  color: #ffffff;
+  font-size: 32px;
+  margin-right: 32px;
+}
+
+#itemPricing {
+  margin: 0px 0px 0px auto;
+}
+
+#priceLabel {
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+#priceLabel>mat-card-content {
+  padding: 0px;
+  font-size: 48px;
+}
+
+#buyButton {
+  height: 80px;
+  width: 80px;
+  padding: 0px;
+  background-color: #c00754;
+}
+
+#buyButton mat-icon {
+  font-size: 64px;
+  width: 64px;
+  height: 64px;
+}
+
+#spaceWaster {
+  height: 500px;
+}

@@ -1,0 +1,46 @@
+@use '@angular/material' as mat;
+
+$cybuy-palette: (
+  50: #fce3eb,
+  100: #f8b9cd,
+  200: #f48cac,
+  300: #ef5d8c,
+  400: #ea3973,
+  500: #e60e5b,
+  600: #d60a59,
+  700: #c00754,
+  800: #ab0251,
+  900: #87004a,
+
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+$my-primary: mat.define-palette($cybuy-palette, 500);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-dark-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn,
+  )
+));
+
+@include mat.all-component-themes($my-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #545454 }
