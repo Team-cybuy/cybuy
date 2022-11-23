@@ -1,7 +1,9 @@
 package cybuy.postalCode;
 
-import org.springframework.boot.json.JsonParser;
-import org.springframework.boot.json.JsonParserFactory;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,25 +25,25 @@ public class PostalCodeController {
                 .build();
     }
 
-//    @GetMapping("/server/{code}")
-//    public ResponseEntity<String> resolvePostalCode(@PathVariable("code") String code) {
-//
-//        ResponseEntity<String> response = this.webClient.get()
-//                .uri(code)
-//                .retrieve()
-//                .toEntity(String.class)
-//                .block();
-//
-//        if(response.getStatusCode().equals(HttpStatus.OK)) {
-//
-//            JsonParser parser = JsonParserFactory.getJsonParser();
-//            String places = parser.parseMap(response.getBody()).get("places").toString().replace("[", "").replace("]", "");
-//            return new ResponseEntity<>(parser.parseMap(places).get("place name").toString(), HttpStatus.OK);
-//        } else {
-//
-//            return new ResponseEntity<>(null, response.getStatusCode());
-//        }
-//    }
+    @GetMapping("/server/{code}")
+    public ResponseEntity<String> resolvePostalCode(@PathVariable("code") String code) throws JsonProcessingException { // this method will be removed and only exists for implementation tests
+
+        ResponseEntity<String> response = this.webClient.get()
+                .uri(code)
+                .retrieve()
+                .toEntity(String.class)
+                .block();
+
+        if(response.getStatusCode().equals(HttpStatus.OK)) {
+
+            JsonNode json = new JsonMapper().readTree(response.getBody());
+            String place = json.get("places").get(0).get("place name").toString().replace("\"", "");
+            return new ResponseEntity<>(place, HttpStatus.OK);
+        } else {
+
+            return new ResponseEntity<>(null, response.getStatusCode());
+        }
+    }
 
     @GetMapping("/{code}")
     public Mono<ResponseEntity<String>> resolvePostalCodeData(@PathVariable("code") String code) {
