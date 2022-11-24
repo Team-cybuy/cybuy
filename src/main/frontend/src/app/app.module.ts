@@ -16,12 +16,14 @@ import { ListingComponent } from './listing/listing.component';
 import {RouterModule} from "@angular/router";
 import { HomeComponent } from './home/home.component';
 import {MatCardModule} from "@angular/material/card";
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListingComponent,
-    HomeComponent
+    HomeComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

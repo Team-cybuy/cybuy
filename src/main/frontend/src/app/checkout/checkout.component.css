@@ -1,0 +1,29 @@
+.container{
+  display: flex;
+}
+
+#main{
+  flex-direction: column;
+}
+#middle{
+  flex-direction: row;
+}
+#information{
+  flex-direction: column;
+  width: 500px;
+}
+
+#information > *{
+  column-gap: 20px;
+}
+
+#headline{
+  align-self: center;
+}
+
+#orderSummary{
+  width: 500px;
+}
+#completeOrder{
+  width: 100%;
+}
