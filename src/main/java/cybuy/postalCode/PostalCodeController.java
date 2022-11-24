@@ -1,9 +1,5 @@
 package cybuy.postalCode;
 
-import org.springframework.boot.json.JsonParser;
-import org.springframework.boot.json.JsonParserFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,40 +11,20 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/postal")
 public class PostalCodeController {
 
-    private final WebClient webClient;
-
+    WebClient webClient;
     public PostalCodeController() {
+
         this.webClient = WebClient.builder()
                 .baseUrl("http://api.zippopotam.us/de/")
                 .build();
     }
 
-//    @GetMapping("/server/{code}")
-//    public ResponseEntity<String> resolvePostalCode(@PathVariable("code") String code) {
-//
-//        ResponseEntity<String> response = this.webClient.get()
-//                .uri(code)
-//                .retrieve()
-//                .toEntity(String.class)
-//                .block();
-//
-//        if(response.getStatusCode().equals(HttpStatus.OK)) {
-//
-//            JsonParser parser = JsonParserFactory.getJsonParser();
-//            String places = parser.parseMap(response.getBody()).get("places").toString().replace("[", "").replace("]", "");
-//            return new ResponseEntity<>(parser.parseMap(places).get("place name").toString(), HttpStatus.OK);
-//        } else {
-//
-//            return new ResponseEntity<>(null, response.getStatusCode());
-//        }
-//    }
-
-    @GetMapping("/{code}")
-    public Mono<ResponseEntity<String>> resolvePostalCodeData(@PathVariable("code") String code) {
+    @GetMapping(value = "/{code}", produces = "application/json")
+    public Mono<String> resolvePostalCode(@PathVariable("code") String code) {
 
         return this.webClient.get()
                 .uri(code)
                 .retrieve()
-                .toEntity(String.class);
+                .bodyToMono(String.class);
     }
 }
