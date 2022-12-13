@@ -71,7 +71,7 @@
 }
 
 .button{
-  width: 10%;
+  /*width: 10%;*/
 }
 
 .objekt{
@@ -101,5 +101,3 @@
   width: 100%;
   flex-direction: row;
 }
-
-
