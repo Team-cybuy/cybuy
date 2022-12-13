@@ -26,12 +26,23 @@
 
 #orderSummary{
   width: 100%;
+  height: 100%;
 }
 #completeOrder{
   width: 100%;
+  background: green;
+  color: white;
+  border-radius: 5px;
+  border: green;
 }
 #rightSide{
   width: 30%;
+
+}
+
+#ticket{
+  height: 100%;
+  width: 100%;
 }
 #paymentMethod{
   width: 100%;
@@ -71,7 +82,7 @@
 }
 
 .button{
-  /*width: 10%;*/
+
 }
 
 .objekt{
@@ -83,14 +94,15 @@
 #endSumme{
   background: #87004a;
   border-radius: 5px;
-  width: 20%;
   text-align: center;
   font-size: 200%;
   padding: 3%;
+
 }
 
 #endSummeBox{
   flex-direction: row-reverse;
+  margin-top: auto;
 }
 
 #rightSide h1{
@@ -100,4 +112,20 @@
 #row1, #row2, #row3, #row4{
   width: 100%;
   flex-direction: row;
+}
+
+p, h2{
+  color: white;
+}
+.checkbox{
+  color: white;
+}
+
+#leftSide h2{
+  margin-top: 3%;
+}
+
+#leftSide mat-form-field{
+  width: 40%;
+  font-size: 200%;
 }
