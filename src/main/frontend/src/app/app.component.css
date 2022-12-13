@@ -57,6 +57,10 @@ mat-toolbar>div>* {
   transform: scale(2);
 }
 
+#chin {
+  width: 100%;
+}
+
 ::ng-deep .search-bar .mat-form-field-flex{
   background-color: #c6c6c6 !important;
 }
