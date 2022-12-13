@@ -2,75 +2,79 @@
   <h1 id="headline">Checkout</h1>
 
   <div id="middle" class="container">
-  <div id="leftSide" class="container">
-      <div id="row1" class="container">
-        <mat-form-field id="inputFirstName">
-          <mat-label>First name</mat-label>
-          <input matInput>
-        </mat-form-field>
-        <mat-form-field id="inputLastName">
-          <mat-label>Last name</mat-label>
-          <input matInput>
-        </mat-form-field>
-      </div>
-      <div id="row2" class="container">
-        <mat-form-field id="inputEmail">
-          <mat-label>Email</mat-label>
-          <input matInput>
-        </mat-form-field>
-        <mat-form-field id="inputPhoneNumber">
-          <mat-label>Phone Number</mat-label>
-          <input matInput>
-        </mat-form-field>
-      </div>
-      <div id="row3" class="container">
-        <mat-form-field id="inputCity">
-          <mat-label>City</mat-label>
-          <input matInput>
-        </mat-form-field>
-        <mat-form-field id="inputPostakCode">
-          <mat-label>Postal code</mat-label>
-          <input matInput>
-        </mat-form-field>
-      </div>
-      <div id="row4" class="container">
-        <mat-form-field id="inputAddress">
-          <mat-label>Address</mat-label>
-          <input matInput>
-        </mat-form-field>
-      </div>
-      <mat-checkbox class="checkbox">I agree to the terms of service of cybuy</mat-checkbox>
-      <p>Choose your payment method</p>
-      <div id="paymentMethod" class="container">
-        <button mat-flat-button id="cash" class="button">
-          <div class="paymentMethod" class="container">
-            <mat-icon  aria-hidden="false">payments</mat-icon>
-            <p>Cash</p>
+    <div id="leftSide" class="container">
+        <div id="row1" class="container">
+          <mat-form-field id="inputFirstName">
+            <mat-label>First name</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field id="inputLastName">
+            <mat-label>Last name</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+        <div id="row2" class="container">
+          <mat-form-field id="inputEmail">
+            <mat-label>Email</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field id="inputPhoneNumber">
+            <mat-label>Phone Number</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+        <div id="row3" class="container">
+          <mat-form-field id="inputCity">
+            <mat-label>City</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field id="inputPostakCode">
+            <mat-label>Postal code</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+        <div id="row4" class="container">
+          <mat-form-field id="inputAddress">
+            <mat-label>Address</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+
+        <mat-checkbox class="checkbox">I agree to the terms of service of cybuy</mat-checkbox>
+        <p>Choose your payment method</p>
+        <div id="paymentMethod" class="container">
+          <button mat-flat-button id="cash" class="button">
+              <mat-icon  aria-hidden="false">payments</mat-icon>
+              <p>Cash</p>
+          </button>
+          <button mat-flat-button id="credit" class="button">
+              <mat-icon aria-hidden="false">credit_card</mat-icon>
+              <p>Credit</p>
+          </button>
+          <button mat-flat-button id="debit" class="button">
+              <mat-icon aria-hidden="false">credit_score</mat-icon>
+              <p>Debit</p>
+          </button>
+        </div>
+    </div>
+    <div id="rightSide" class="container">
+      <mat-card id="orderSummary">
+        <mat-card-content>
+          <h1>Order summary</h1>
+          <p class="objekt">.</p>
+          <p class="objekt">.</p>
+          <p class="objekt">.</p>
+          <p class="objekt">.</p>
+          <p class="objekt">.</p>
+          <p class="objekt">.</p>
+          <div class="container" id="endSummeBox">
+            <p id="endSumme">420,69</p>
           </div>
-        </button>
-        <button mat-flat-button id="credit" class="button">
-          <div class="paymentMethod" class="container">
-            <mat-icon aria-hidden="false">credit_card</mat-icon>
-            <p>Credit</p>
-          </div>
-        </button>
-        <button mat-flat-button id="debit" class="button">
-          <div class="paymentMethod" class="container">
-            <mat-icon aria-hidden="false">credit_score</mat-icon>
-            <p>Debit</p>
-          </div>
-        </button>
-      </div>
-  </div>
-  <div id="rightSide" class="container">
-    <mat-card id="orderSummary">
-      <mat-card-content>
-        <p>Test</p>
-        <mat-card-actions>
-          <button id="completeOrder">Complete Order</button>
-        </mat-card-actions>
-      </mat-card-content>
-    </mat-card>
-  </div>
+          <mat-card-actions>
+            <button id="completeOrder">Complete Order</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>
