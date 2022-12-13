@@ -8,13 +8,11 @@
 #middle{
   flex-direction: row;
 }
-#information{
-  flex-direction: column;
-  width: 500px;
-}
 
-#information > *{
+
+#leftSide > *{
   column-gap: 20px;
+  width: 100%;
 }
 
 #headline{
@@ -26,4 +24,24 @@
 }
 #completeOrder{
   width: 100%;
+}
+#rightSide{
+  width: 40%;
+}
+#paymentMethod{
+  width: 100%;
+}
+
+#leftSide{
+  width: 40%;
+  flex-direction: column;
+}
+
+.paymentMethod{
+  flex-direction: row;
+  width: 200px;
+}
+
+.button{
+  width: 30%;
 }

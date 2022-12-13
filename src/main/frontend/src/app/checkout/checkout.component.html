@@ -3,7 +3,6 @@
 
   <div id="middle" class="container">
   <div id="leftSide" class="container">
-    <div id="information" class="container">
       <div id="row1" class="container">
         <mat-form-field id="inputFirstName">
           <mat-label>First name</mat-label>
@@ -40,15 +39,28 @@
           <input matInput>
         </mat-form-field>
       </div>
-      <p>I agree to the terms of service of cybuy</p>
+      <mat-checkbox class="checkbox">I agree to the terms of service of cybuy</mat-checkbox>
       <p>Choose your payment method</p>
       <div id="paymentMethod" class="container">
-        <button mat-flat-button id="cash">
-          <mat-icon  fontIcon="home"></mat-icon>
-          Cash
+        <button mat-flat-button id="cash" class="button">
+          <div class="paymentMethod" class="container">
+            <mat-icon  aria-hidden="false">payments</mat-icon>
+            <p>Cash</p>
+          </div>
+        </button>
+        <button mat-flat-button id="credit" class="button">
+          <div class="paymentMethod" class="container">
+            <mat-icon aria-hidden="false">credit_card</mat-icon>
+            <p>Credit</p>
+          </div>
+        </button>
+        <button mat-flat-button id="debit" class="button">
+          <div class="paymentMethod" class="container">
+            <mat-icon aria-hidden="false">credit_score</mat-icon>
+            <p>Debit</p>
+          </div>
         </button>
       </div>
-    </div>
   </div>
   <div id="rightSide" class="container">
     <mat-card id="orderSummary">

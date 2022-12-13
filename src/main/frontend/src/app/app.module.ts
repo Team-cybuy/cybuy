@@ -17,6 +17,7 @@ import {RouterModule} from "@angular/router";
 import { HomeComponent } from './home/home.component';
 import {MatCardModule} from "@angular/material/card";
 import { CheckoutComponent } from './checkout/checkout.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
