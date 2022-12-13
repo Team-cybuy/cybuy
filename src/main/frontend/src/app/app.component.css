@@ -59,10 +59,12 @@ mat-toolbar>div>* {
 
 #chin {
   width: 100%;
+  display: block;
 }
 
 ::ng-deep .search-bar .mat-form-field-flex{
   background-color: #c6c6c6 !important;
+  padding: 0px .75em !important;
 }
 
 ::ng-deep .search-bar.mat-form-field-underline {

@@ -42,27 +42,10 @@
 
         <mat-checkbox class="checkbox">I agree to the terms of service of cybuy</mat-checkbox>
         <h2>Choose your payment method</h2>
-
-        <div id="paymentMethod" class="container">
-          <button mat-stroked-button id="cash" class="button">
-            <mat-icon  aria-hidden="false">payments</mat-icon>
-            <p>Cash</p>
-          </button>
-
-          <button mat-stroked-button id="credit" class="button">
-            <mat-icon aria-hidden="false">credit_card</mat-icon>
-            <p>Credit</p>
-          </button>
-
-          <button mat-stroked-button id="debit" class="button">
-            <mat-icon aria-hidden="false">credit_score</mat-icon>
-            <p>Debit</p>
-          </button>
-        </div>
     </div>
     <div id="rightSide" class="container">
       <mat-card id="orderSummary">
-        <mat-card-content id="shit">
+        <mat-card-content id="ticket">
           <h1>Order summary</h1>
           <p class="objekt">.</p>
           <p class="objekt">.</p>
@@ -73,11 +56,26 @@
           <div class="container" id="endSummeBox">
             <p id="endSumme">420,69</p>
           </div>
-          <mat-card-actions>
-            <button mat-stroked-button id="completeOrder">Complete Order</button>
-          </mat-card-actions>
+          <button mat-stroked-button id="completeOrder">Complete Order</button>
         </mat-card-content>
       </mat-card>
     </div>
+  </div>
+
+  <div id="paymentMethod" class="container">
+    <button mat-stroked-button id="cash" class="button">
+      <mat-icon  aria-hidden="false">payments</mat-icon>
+      <p>Cash</p>
+    </button>
+
+    <button mat-stroked-button id="credit" class="button">
+      <mat-icon aria-hidden="false">credit_card</mat-icon>
+      <p>Credit</p>
+    </button>
+
+    <button mat-stroked-button id="debit" class="button">
+      <mat-icon aria-hidden="false">credit_score</mat-icon>
+      <p>Debit</p>
+    </button>
   </div>
 </div>

@@ -5,10 +5,13 @@
 #main{
   justify-content: center;
   flex-direction: column;
+  padding: 0 56px;
 }
 #middle{
   flex-direction: row;
   justify-content: center;
+  height: auto;
+  margin-bottom: 16px;
 }
 
 
@@ -26,44 +29,50 @@
 
 #orderSummary{
   width: 100%;
-  height: 100%;
+  display: flex;
 }
-#completeOrder{
+#completeOrder {
   width: 100%;
   background: green;
   color: white;
   border-radius: 5px;
   border: green;
 }
+
 #rightSide{
-  width: 30%;
-
+  width: 34%;
+  height: auto;
 }
 
-#ticket{
-  height: 100%;
+#ticket {
+  height: auto;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-#paymentMethod{
-  width: 100%;
-}
+
 #paymentMethod>button {
   border-width: 4px;
   border-color: #424242;
   color: white;
-  height: 100%;
-  aspect-ratio: 1/1;
   padding: 12px 12px 8px 12px;
   display: flex;
   justify-content: center;
   vertical-align: center;
+
+  /* Hardcoded due to a Firefox bug with aspect-ratio*/
+  height: 130px;
+  width: 130px;
+}
+
+#paymentMethod>button:focus {
+  background-color: #424242;
 }
 
 #paymentMethod>button mat-icon {
   font-size: 56px;
   width: 56px;
   height: 56px;
-  padding-bottom: 8px;
 }
 
 #paymentMethod>button p {
@@ -73,16 +82,13 @@
 }
 
 #leftSide{
-  width: 60%;
+  width: 66%;
   flex-direction: column;
+  height: 100%;
 }
 
 .paymentMethod{
   flex-direction: row;
-}
-
-.button{
-
 }
 
 .objekt{
@@ -102,7 +108,7 @@
 
 #endSummeBox{
   flex-direction: row-reverse;
-  margin-top: auto;
+  margin: auto 0 0 0;
 }
 
 #rightSide h1{
@@ -122,10 +128,16 @@ p, h2{
 }
 
 #leftSide h2{
-  margin-top: 3%;
+  margin: 32px 0 0 0;
 }
 
 #leftSide mat-form-field{
   width: 40%;
   font-size: 200%;
+}
+
+#paymentMethod {
+  width: 66%;
+  flex-flow: row;
+  column-gap: 32px;
 }
