@@ -4,8 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import cybuy.item.ItemEntity;
 
 import javax.persistence.*;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -33,12 +32,20 @@ public class UserEntity {
     @Column(name = "postal_code")
     private int postal_code;
 
+    @Column(name = "password", length = 60)
+    private String password;
+
+    @Column(name = "role")
+    private String role;
+
     @Column(name = "items")
     @OneToMany(mappedBy = "user_entity", fetch = FetchType.EAGER)
     @JsonManagedReference
     private Set<ItemEntity> items;
 
-    public UserEntity() {}
+    public UserEntity() {
+        this.user_number = UUID.randomUUID();
+    }
 
     public UserEntity(String mail, String first_name, String last_name, String address, int postal_code) {
         this.mail = mail;
@@ -97,12 +104,28 @@ public class UserEntity {
         this.postal_code = postal_code;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     public Set<ItemEntity> getItems() {
         return items;
     }
 
     @Override
-    public String toString() {
+    public String toString() { // todo: user
         return "User [user_id=" + this.user_id + ", mail=" + this.mail + ", first_name=" + this.first_name + ", last_name="
                 + this.last_name + ", address=" + this.address + ", postal_code=" + this.postal_code + ", items=" + this.items + "]";
     }
